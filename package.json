@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.css|*.scss)\""
   },
   "dependencies": {
     "@types/node": "20.4.1",
@@ -18,5 +19,18 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "yarn lint",
+      "yarn prettier",
+      "git add ."
+    ]
   }
 }
